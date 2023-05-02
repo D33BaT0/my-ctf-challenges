@@ -1,0 +1,1 @@
+secret = b'd3ctf{_blinding_crt-rsa_but_leak_part_of_dp_dq_1s_r3a11y_uns4fe_}'
