@@ -16,7 +16,9 @@ Server implements a class `D3_ENC`,which encrypts message by `CTR-SM4` and imple
 
 ##### Authentication Mechanism:(get_tag) 
 
-$block_i=msg[16*i:16*i+16],i\in[0,\text{len}(msg)//16]$
+ $block_i=msg[16*i:16*i+16],i\in[0,\text{len}(msg)//16]$  
+
+
 $$
 authdata_0 = init\\
 authdata_{i+1} =\text{sha256}(rsa(authdata_{i}))[:32]\oplus block_i\\
@@ -27,10 +29,8 @@ $$
 
 Input `username`, it should satisfy length < 20. Randomly generate an 8-byte nonce. 
 
-Get token like this:
-$$
-token = \{'id':Username,\ 'admin':0,'nonce':nonce.hex(),'time':time.time()\}
-$$
+Get token like this: $token = \{'id':Username,\ 'admin':0,'nonce':nonce.hex(),'time':time.time()\}$ 
+
 Server encrypts the token by `CTR-SM4` ,records the `Username` and `tag` in the dictionary and sends `username,encrypted token and nonce` to client.
 
 ##### Login Mechanism
