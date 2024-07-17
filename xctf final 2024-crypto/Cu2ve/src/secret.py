@@ -1,0 +1,1 @@
+FLAG = b'flag{u_kn0w_curv3.h@v3_fun!}'
