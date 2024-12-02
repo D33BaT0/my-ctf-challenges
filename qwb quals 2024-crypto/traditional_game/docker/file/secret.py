@@ -1,0 +1,2 @@
+flag = b'flag{eeeeeeeeeeeeeeeeeeeeezzzz_game_will_be_over}'
+secret = b'wh4t_4b0ut_th3_s3cr3t?_1t_1s_4lw4ys_1mp0rt4nt_t0_k33p_1t_s4f3.Y0u_n3v3r_kn0w_wh3n_y0u_w1ll_n33d_1t.'

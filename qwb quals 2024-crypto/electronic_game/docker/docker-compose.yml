@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  leak:
+    build: .
+    ports:
+      - "11420:11420"
