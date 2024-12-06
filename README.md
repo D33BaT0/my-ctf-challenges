@@ -1,16 +1,28 @@
-# my-ctf-challenges
-- qwb quals 2024: traditional game, electronic game
+# My-CTF-Challenges
 
-- wdb 2024: piff, boyfindgalois
+- QWB Final 2024: 
+  1. bl0ck (★): AES collision
+  2. b1ock(★★☆): DES linear attack
 
-- XCTF Final 2024: Cu2ve, Cyph3, d77777s, equation
+- QWB quals 2024: 
+  1. traditional game (★★★): RSA, coppersmith
+  2. electronic game (★★★☆): trace, FFI
 
-- Ant CTF×D^3 CTF 2023: d3sys
+- WDB 2024: 
+  1. piff (★☆): FFI
+  2. boyfindgalois (★★☆): Galois Field, BFV
 
-- VNCTF 2023: crypto_sign_in_1
+- XCTF Final 2024: 
+  1. Cu2ve (★★★☆): pairing
+  2. Cyph3 (★★★): differential, mt19937
+  3. d77777s (★): des fixed key
+  4. equation (★☆): pell
 
-- CSAW CTF 2022: M@sTEr 0F PrN9
+- Ant CTF×D^3 CTF 2023: 
+  1. d3sys  (★★★): coppersmith, rsa
 
-  
-  
-  
+- VNCTF 2023:
+  1. crypto_sign_in_1 (★★): singular attack
+
+- CSAW CTF 2022: 
+  1. M@sTEr 0F PrN9 (★★): HNP, lcg
