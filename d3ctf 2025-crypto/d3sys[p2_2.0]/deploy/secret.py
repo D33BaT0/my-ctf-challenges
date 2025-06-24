@@ -1,0 +1,1 @@
+FLAG = 'd3ctf{th1rd_7hirD_thI2d.1/3_cou1d_b3_m000rE_OnE_ddd4y@@@@@@@}'

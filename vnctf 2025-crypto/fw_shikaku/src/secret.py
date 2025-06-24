@@ -1,0 +1,1 @@
+FLAG = 'VNCTF{Wh3%_th3rr0R_c@nd1d@t3s_0f_L3@rn1n9-w1tH-3r^20r_1s_sm4ll,it_WoulD_b3-R3411Y_D4ng3r0us!!}'
