@@ -83,6 +83,7 @@ Below, I will briefly describe the intended solution of `r3system-revenge`.
 Consider a recurrence relation of order $m$: $k_{i+1} = \sum_{j=0}^{m} a_j k_i^j$. Assume we have $N = m+2$ consecutive nonces $k_1, \dots, k_{m+2}$, which are generated from the initial values $k_0, \dots, k_{m+1}$. The recurrence relation holds for $i=0, \dots, m+1$.
 
 This allows us to write out the following $m+2$ relations:
+
 $$
 \begin{align*}
 k_1 &= a_m k_0^m + a_{m-1} k_0^{m-1} + \dots + a_1 k_0 + a_0 \\
@@ -94,6 +95,7 @@ $$
 
 
 We can view this as a linear system. Consider the following $(m+2) \times (m+2)$ matrix:
+
 $$
 \begin{equation*}  
 M = 
@@ -116,9 +118,10 @@ The structure of matrix $M$ is similar to a Vandermonde matrix, particularly in 
 
 By substituting the linear equations for each $k_i$ in terms of the private key $x$ into this determinant equation, we directly obtain a polynomial equation $P(x)=0\pmod{p}$. Finding the roots of this polynomial recovers the private key $x$.
 
-The determinant of matrix $M$ can be expressed using cofactor expansion along the first column: $ \det(M) = \sum_{i=1}^{N} (-1)^{i+1} M_{i,1} \cdot \det(C_{i,1})\pmod{p}$, where $N = m+2$ is the dimension of the matrix, $M_{i,1} = k_i$ is the element in the $i$-th row and first column, and $C_{i,1}$ is the $(N-1) \times (N-1)$ submatrix (cofactor) obtained by removing the $i$-th row and first column of $M$.
+The determinant of matrix $M$ can be expressed using cofactor expansion along the first column: $\det(M) = \sum_{i=1}^{N} (-1)^{i+1} M_{i,1} \cdot \det(C_{i,1})\pmod{p}$, where $N = m+2$ is the dimension of the matrix, $M_{i,1} = k_i$ is the element in the $i$-th row and first column, and $C_{i,1}$ is the $(N-1) \times (N-1)$ submatrix (cofactor) obtained by removing the $i$-th row and first column of $M$.
 
 When we remove the $i$-th row and 1st column from M, the resulting matrix $C_{i,1}$ has the form:
+
 $$
 C_{i,1} = \begin{pmatrix} k_0^m & k_0^{m-1} & \cdots & k_0^1 & 1 \\ \vdots & \vdots & \ddots & \vdots & \vdots \\ k_{i-2}^m & k_{i-2}^{m-1} & \cdots & k_{i-2}^1 & 1 \\ k_{i}^m & k_{i}^{m-1} & \cdots & k_{i}^1 & 1 \\ \vdots & \vdots & \ddots & \vdots & \vdots \\ k_{N-1}^m & k_{N-1}^{m-1} & \cdots & k_{N-1}^1 & 1 \end{pmatrix} \notag
 $$
@@ -126,16 +129,18 @@ $$
 Observe that each row of this matrix consists of powers of a single base value $k_j$ (where $j \in \{0, 1, \dots, N-1\} \setminus \{i-1\}$), from power $m$ down to 0. Each submatrix $C_{i,1}$ is a standard $(N-1) \times (N-1)$ Vandermonde matrix whose base values are the set $\mathcal{K}_i = \{k_0, k_1, \dots, k_{N-1}\} \setminus \{k_{i-1}\}$.
 
 The determinant of an $(N-1) \times (N-1)$ Vandermonde matrix with base values $\alpha_1, \dots, \alpha_{N-1}$ is known to be $\prod_{1 \le r < s \le N-1} (\alpha_s - \alpha_r)$. Therefore, for $\det(C_{i,1})$, we have: 
+
 $$
 \det(C_{i,1}) = \prod_{\substack{0 \le r < s \le N-1 \\ r, s \neq i-1}} (k_s - k_r) \notag
 $$
+
 Using the method described above, the complexity of the original `dpoly` calculation, roughly $O(N^4\log N)$, can be reduced to approximately $O(N^3 \log^2 N)$. This significant reduction in complexity makes the attack feasible.
 
 #### Compute the roots and get $x$
 
 Ultimately, you need to find the roots of $\det(M)$, which is the polynomial $P(x)\pmod{p}$. However, its degree is relatively high, so it cannot be solved directly using Sagemath's built-in `.roots()` function.
 
-Since p is a prime number, we can use a common property of finite fields: all elements in $\mathbb{F}_p$ are roots of $x^p-x$. Therefore, we can reduce the degree of the polynomial $P(x)$ by computing the $\gcd(x^p - x, P(x))$, and then find the roots of the resulting, lower-degree polynomial.
+Since p is a prime number, we can use a common property of finite fields: all elements in $\mathbb{F}_p$ are roots of $x^p-x$. Therefore, we can reduce the degree of the polynomial $P(x)$ by computing the $`\gcd(x^p - x, P(x))`$, and then find the roots of the resulting, lower-degree polynomial.
 
 This may yield multiple possible values for $x$. You simply need to validate them with Alice's public key to find the correct $x$, which will ultimately lead to the flag.
 
