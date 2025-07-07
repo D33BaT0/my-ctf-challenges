@@ -1,4 +1,8 @@
 # My-CTF-Challenges
+- **r3CTF 2025**
+  1. **r3system/r3system-revenge** (★★★★★): TDA, related nonce attack, vandermonde-det.
+  2. **Spad3kapig** (★★★): HNP, LCG.
+
 - **D^3 CTF 2025**:
   1. **d3sys[p2_2.0]** (★★☆): coppersmith, RSA.
 
@@ -24,7 +28,7 @@
   4. **equation** (★☆): Pell.
 
 - **Ant CTF×D^3 CTF 2023**: 
-  1. **d3sys** (★★★): coppersmith, RSA.
+  1. **d3sys** (★★★): coppersmith, RSA, oracle.
 
 - **VNCTF 2023**:
   1. **crypto_sign_in_1** (★★): Singular attack.

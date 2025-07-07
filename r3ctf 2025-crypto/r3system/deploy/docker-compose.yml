@@ -1,0 +1,10 @@
+services:
+  test:
+    build: ./
+    environment:
+      # 仅为测试用flag
+      FLAG: "r3ctf{r3duced_k3cc4k_c0ll1sion_1s_dumMy_awfu1!h0wever_r3lat3d_n0nc3_wh1ch_i5_r3ally_easy_to_fuck1ng}"
+    ports:
+      # 设置了暴露端口
+      - 11421:11421
+    restart: unless-stopped

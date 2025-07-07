@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  spadesace:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - FLAG=r3ctf{test_flag}
+    ports:
+      - "12312:12312"
+    restart: unless-stopped
