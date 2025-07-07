@@ -138,13 +138,7 @@ $$
 
 Observe that each row of this matrix consists of powers of a single base value $k_j$ (where $j \in \{0, 1, \dots, N-1\} \setminus \{i-1\}$), from power $m$ down to 0. Each submatrix $C_{i,1}$ is a standard $(N-1) \times (N-1)$ Vandermonde matrix whose base values are the set $\mathcal{K}_i = \{k_0, k_1, \dots, k_{N-1}\} \setminus \{k_{i-1}\}$.
 
-The determinant of an $(N-1) \times (N-1)$ Vandermonde matrix with base values $\alpha_1, \dots, \alpha_{N-1}$ is known to be $\prod_{1 \le r < s \le N-1} (\alpha_s - \alpha_r)$. Therefore, for $\det(C_{i,1})$, we have: 
-
-$$
-\begin{equation*}
-\det(C_{i,1}) = \prod_{\substack{0 \le r < s \le N-1 \\ r, s \neq i-1}} (k_s - k_r)
-\begin{equation*}
-$$
+The determinant of an $(N-1) \times (N-1)$ Vandermonde matrix with base values $\alpha_1, \dots, \alpha_{N-1}$ is known to be $\prod_{1 \le r < s \le N-1} (\alpha_s - \alpha_r)$. Therefore, for $\det(C_{i,1})$, we have: $`\det(C_{i,1}) = \prod_{\substack{0 \le r < s \le N-1 \\ r, s \neq i-1}} (k_s - k_r)`$.
 
 Using the method described above, the complexity of the original `dpoly` calculation, roughly $O(N^4\log N)$, can be reduced to approximately $O(N^3 \log^2 N)$. This significant reduction in complexity makes the attack feasible.
 
