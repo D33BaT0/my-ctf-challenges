@@ -1,4 +1,11 @@
 # r3system / r3system-revenge
+## Remarks
+
+**The reason I mixed two challenges together is that I came up with the idea for this challenge about a week before the competition. Half of it is an upgraded version of a challenge from r3ctf 2024, and I felt that might be too simple for a 48-hour competition, so I added the task of finding Keccak collisions to it.**
+
+**Besides, after the recent torture of symmetry, I thought I'd make everyone suffer along with me. If you don't think this was a good approach, I can only apologize.**
+
+**I'm also very sorry for not providing the source code from the beginning; that was my fault.**
 
 ## Description
 
@@ -8,12 +15,11 @@ Note: You should pass 1 PoW then get the source code!
 
 ## Flag
 
-`r3ctf{finding_reduced_round_keccak_collisions_is_awsome-related_nonce_attack_can_be_more_efficient}`
+`R3CTF{finding_reduced_round_keccak_collisions_is_awsome-related_nonce_attack_can_be_more_efficient}`
 
 ## Solution
 
 ### First part. pass the part of PoW(Keccak 224-4 round collisions)
-
 
 #### **Overview**
 
@@ -59,7 +65,7 @@ The main steps to find a collision are as follows:
 
 #### **Additional Constraint**
 
-Furthermore, an additional constraint must be applied: the candidate message **$M^1$ must start with the character 'r'**.
+Furthermore, an additional constraint must be applied: the candidate message **$M^1$ must start with the character 'r'** (search the basis in the kernel space).
 
 ### Second part. related nonce attack with more efficient method.
 
@@ -135,6 +141,6 @@ This may yield multiple possible values for $x$. You simply need to validate the
 
 ## Summary
 
-This challenge was quite complex and was designed specifically for a 48-hour competition. 
+This challenge was quite complex and was designed specifically for a 48-hour competition. My solution costs about 30 seconds with 14 cores.
 
 ***If anyone has ideas or wants to discuss this further deep research of techniques about RELATED NONCE ATTACK  described, please feel free to contact me.***

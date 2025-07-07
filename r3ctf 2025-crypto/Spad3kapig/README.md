@@ -22,7 +22,7 @@ In each connection to the server, the `team_seed` changes, making brute force ap
 
 In the challenge, you can get multiple results of `rng.next()` with `team_seed,random_device()`, allowing you to collect sufficient information related to `team_seed`. Below is a general description of how to attack this challenge using cryptanalysis methods.
 
-Note: *This challenge had an unintended solution, which was very frustrating for me. It was solved by using brute-force with optimizations, without needing the intended method for solving a Hidden Number Problem (HNP) with a three-layer modulus.*
+Note: *This challenge had an unintended solution, which was very frustrating for me. It was solved by using brute-force with optimizations(or birthday paradox), without needing the intended method for solving a Hidden Number Problem (HNP) with a three-layer modulus.*
 
 ### First. recover the rng.next() from deck. 
 
